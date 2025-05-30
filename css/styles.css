@@ -158,6 +158,54 @@ h2 {
   background-color: #7928d1;
 }
 
+/* Sync Button */
+.sync-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--color-primary);
+  color: white;
+  padding: 0.8rem;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-lg);
+  transition: transform var(--transition-fast), background-color var(--transition-fast);
+  z-index: 1000;
+}
+
+.sync-button:hover {
+  transform: scale(1.1);
+  background-color: #7928d1;
+}
+
+.sync-button:active {
+  transform: scale(0.95);
+}
+
+.sync-icon {
+  font-size: 1.5rem;
+  margin-bottom: 2px;
+}
+
+.sync-text {
+  font-size: 0.7rem;
+  font-weight: var(--font-weight-semibold);
+}
+
+.sync-button.syncing .sync-icon {
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
 /* PWA Update Notification */
 .pwa-update-notification {
   position: fixed;

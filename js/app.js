@@ -1,7 +1,7 @@
 // Main application file
 import { setupNavigation } from './navigation.js';
 import { setupValidation } from './validation.js';
-import { setupStorage } from './storage.js';
+import { setupStorage, syncData } from './storage.js';
 import { registerServiceWorker } from './pwa.js';
 
 // Initialize the application
@@ -17,4 +17,32 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Initialize PWA functionality
   registerServiceWorker();
+  
+  // Set up sync button functionality
+  setupSyncButton();
 });
+
+function setupSyncButton() {
+  const syncButton = document.getElementById('sync-button');
+  
+  syncButton.addEventListener('click', async () => {
+    // Prevent multiple clicks while syncing
+    if (syncButton.classList.contains('syncing')) return;
+    
+    // Add syncing state
+    syncButton.classList.add('syncing');
+    
+    try {
+      const result = await syncData();
+      
+      // Show result to user
+      alert(result.message);
+      
+    } catch (error) {
+      alert('Erro ao sincronizar. Tente novamente mais tarde.');
+    } finally {
+      // Remove syncing state
+      syncButton.classList.remove('syncing');
+    }
+  });
+}

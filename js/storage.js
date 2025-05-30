@@ -51,6 +51,41 @@ export function getFormData(formType) {
   }
 }
 
+// Sync data with backend
+export async function syncData() {
+  try {
+    const data = getAllData();
+    
+    // Don't sync if there's no data
+    if (Object.values(data).every(arr => arr.length === 0)) {
+      return { success: false, message: 'Nenhum dado para sincronizar' };
+    }
+
+    const response = await fetch('/api/sincronizar', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+
+    if (!response.ok) {
+      throw new Error('Erro ao sincronizar dados');
+    }
+
+    // Clear local data after successful sync
+    clearAllData();
+    
+    return { success: true, message: 'Dados sincronizados com sucesso!' };
+  } catch (error) {
+    console.error('Erro na sincronização:', error);
+    return { 
+      success: false, 
+      message: 'Erro ao sincronizar. Tente novamente mais tarde.'
+    };
+  }
+}
+
 // Get all saved data
 export function getAllData() {
   try {
