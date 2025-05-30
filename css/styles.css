@@ -1,0 +1,219 @@
+/* Main Styles */
+:root {
+  --color-primary: #8A2BE2; /* Purple */
+  --color-secondary: #4169E1; /* Royal Blue */
+  --color-tertiary: #FF1493; /* Deep Pink */
+  --color-accent: #FFD700; /* Gold */
+  --color-light: #ffffff;
+  --color-dark: #333333;
+  --color-error: #e74c3c;
+  --color-success: #2ecc71;
+  
+  --gradient-bg: linear-gradient(135deg, var(--color-primary), var(--color-secondary), var(--color-tertiary));
+  --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
+  
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 20px;
+  --border-radius-xl: 30px;
+  
+  --font-weight-normal: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+body {
+  background: var(--gradient-bg);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.app-container {
+  width: 100%;
+  max-width: 500px;
+  position: relative; 
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  min-height: min(90vh, 700px);
+  max-height: 95vh;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.screen {
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(30px);
+  transition: opacity var(--transition-normal), transform var(--transition-normal);
+  overflow-y: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.screen.active {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0);
+  z-index: 1;
+}
+
+/* Typography */
+h1, h2 {
+  color: var(--color-light);
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+  font-size: 1.8rem;
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: 1.5rem;
+}
+
+/* Success Screen */
+.success-container {
+  background-color: var(--color-light);
+  padding: 2rem;
+  border-radius: var(--border-radius-lg);
+  text-align: center;
+  box-shadow: var(--shadow-md);
+  width: 100%;
+  max-width: 350px;
+}
+
+.success-icon {
+  width: 80px;
+  height: 80px;
+  background-color: var(--color-success);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 1.5rem;
+  color: white;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.success-container h2 {
+  color: var(--color-dark);
+  margin-bottom: 0.5rem;
+}
+
+.success-container p {
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.back-to-home-button {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: var(--border-radius-md);
+  font-weight: var(--font-weight-semibold);
+  transition: background-color var(--transition-fast);
+}
+
+.back-to-home-button:hover {
+  background-color: #7928d1;
+}
+
+/* PWA Update Notification */
+.pwa-update-notification {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-primary);
+  color: white;
+  padding: 1rem;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  z-index: 1000;
+  animation: slideUp 0.3s ease-out;
+}
+
+.pwa-update-notification button {
+  background: white;
+  color: var(--color-primary);
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+@keyframes slideUp {
+  from {
+    transform: translate(-50%, 100%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  body {
+    padding: 15px;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  .screen {
+    padding: 15px;
+  }
+  
+  .app-container {
+    min-height: 95vh;
+  }
+}

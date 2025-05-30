@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#8A2BE2">
+  <title>Milagres Maringá</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="icon-192x192.png">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/form.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Home Screen -->
+    <section id="home-screen" class="screen active">
+      <div class="logo-container">
+        <div class="logo"></div>
+      </div>
+      <h1 class="title">Milagres Maringá</h1>
+      
+      <div class="buttons-container">
+        <button class="choice-button accept-button" data-form="accept-form">
+          <span>Eu Aceito Jesus</span>
+        </button>
+        <button class="choice-button return-button" data-form="return-form">
+          <span>Estou Voltando</span>
+        </button>
+        <button class="choice-button miracle-button" data-form="miracle-form">
+          <span>Recebi meu Milagre</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Accept Jesus Form -->
+    <section id="accept-form" class="screen form-screen">
+      <div class="form-container">
+        <h2 class="form-title">Eu Aceito Jesus</h2>
+        <form id="accept-jesus-form">
+          <div class="form-group">
+            <label for="accept-name">Nome completo</label>
+            <input type="text" id="accept-name" name="name" required>
+            <div class="error-message" id="accept-name-error"></div>
+          </div>
+          
+          <div class="form-group">
+            <label for="accept-phone">Telefone</label>
+            <div class="phone-input-container">
+              <select id="accept-country-code" name="countryCode">
+                <option value="+55">🇧🇷 +55 (Brasil)</option>
+                <option value="+1">🇺🇸 +1 (EUA/Canadá)</option>
+                <option value="+351">🇵🇹 +351 (Portugal)</option>
+                <option value="+54">🇦🇷 +54 (Argentina)</option>
+                <option value="+595">🇵🇾 +595 (Paraguai)</option>
+                <option value="+598">🇺🇾 +598 (Uruguai)</option>
+                <option value="+591">🇧🇴 +591 (Bolívia)</option>
+              </select>
+              <input type="tel" id="accept-phone" name="phone" placeholder="(DDD) 99999-9999" required>
+            </div>
+            <div class="error-message" id="accept-phone-error"></div>
+          </div>
+          
+          <div class="form-group">
+            <label for="accept-city">Cidade</label>
+            <input type="text" id="accept-city" name="city" required>
+            <div class="error-message" id="accept-city-error"></div>
+          </div>
+          
+          <div class="form-actions">
+            <button type="button" class="back-button">Voltar</button>
+            <button type="submit" class="submit-button">Enviar</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Returning Form -->
+    <section id="return-form" class="screen form-screen">
+      <div class="form-container">
+        <h2 class="form-title">Estou Voltando</h2>
+        <form id="returning-form">
+          <div class="form-group">
+            <label for="return-name">Nome completo</label>
+            <input type="text" id="return-name" name="name" required>
+            <div class="error-message" id="return-name-error"></div>
+          </div>
+          
+          <div class="form-group">
+            <label for="return-phone">Telefone</label>
+            <div class="phone-input-container">
+              <select id="return-country-code" name="countryCode">
+                <option value="+55">🇧🇷 +55 (Brasil)</option>
+                <option value="+1">🇺🇸 +1 (EUA/Canadá)</option>
+                <option value="+351">🇵🇹 +351 (Portugal)</option>
+                <option value="+54">🇦🇷 +54 (Argentina)</option>
+                <option value="+595">🇵🇾 +595 (Paraguai)</option>
+                <option value="+598">🇺🇾 +598 (Uruguai)</option>
+                <option value="+591">🇧🇴 +591 (Bolívia)</option>
+              </select>
+              <input type="tel" id="return-phone" name="phone" placeholder="(DDD) 99999-9999" required>
+            </div>
+            <div class="error-message" id="return-phone-error"></div>
+          </div>
+          
+          <div class="form-group">
+            <label for="return-city">Cidade</label>
+            <input type="text" id="return-city" name="city" required>
+            <div class="error-message" id="return-city-error"></div>
+          </div>
+          
+          <div class="form-actions">
+            <button type="button" class="back-button">Voltar</button>
+            <button type="submit" class="submit-button">Enviar</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Miracle Form -->
+    <section id="miracle-form" class="screen form-screen">
+      <div class="form-container">
+        <h2 class="form-title">Recebi meu Milagre</h2>
+        <form id="miracle-testimony-form">
+          <div class="form-group">
+            <label for="miracle-type">Tipo de cura</label>
+            <select id="miracle-type" name="miracleType" required>
+              <option value="" disabled selected>Selecione o tipo de cura</option>
+              <option value="Cabeça">Cabeça</option>
+              <option value="Corpo">Corpo</option>
+              <option value="Perna">Perna</option>
+              <option value="Braços">Braços</option>
+              <option value="Coluna">Coluna</option>
+              <option value="Dores Crônicas">Dores Crônicas</option>
+              <option value="Cegueira">Cegueira</option>
+              <option value="Surdez">Surdez</option>
+              <option value="Mudez">Mudez</option>
+              <option value="Paralisia">Paralisia</option>
+              <option value="Outro">Outro</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="miracle-details">Detalhes do seu testemunho</label>
+            <textarea id="miracle-details" name="miracleDetails" rows="5" required></textarea>
+          </div>
+          
+          <div class="form-actions">
+            <button type="button" class="back-button">Voltar</button>
+            <button type="submit" class="submit-button">Enviar</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Success Message -->
+    <section id="success-screen" class="screen">
+      <div class="success-container">
+        <div class="success-icon">✓</div>
+        <h2>Recebemos sua informação!</h2>
+        <p>Obrigado por compartilhar conosco.</p>
+        <button class="back-to-home-button">Voltar ao Início</button>
+      </div>
+    </section>
+  </div>
+
+  <script src="js/app.js" type="module"></script>
+</body>
+</html>
