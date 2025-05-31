@@ -16,7 +16,6 @@ const urlsToCache = [
   '/favicon.png',
   '/icons/icon-192x192.png',
   '/icons/icon-512x512.png',
-  '/Imagem do WhatsApp de 2025-05-30 à(s) 17.02.48_44b66e25.jpg',
   'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap'
 ];
 
